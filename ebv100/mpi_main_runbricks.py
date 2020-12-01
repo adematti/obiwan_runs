@@ -11,7 +11,7 @@ threads = os.getenv('OMP_NUM_THREADS',1)
 
 with TaskManager(ntasks=ntasks) as tm:
 
-    for ibrick,brick in tm.iterate(list(enumerate(settings.get_bricknames()[:10]))):
+    for ibrick,brick in tm.iterate(list(enumerate(settings.get_bricknames()))):
 
         log_fn = os.path.join(settings.output_dir,'logs',brick[:3],brick,
                         get_randoms_id(fileid=settings.fileid,rowstart=settings.rowstart,skipid=settings.skipid),'%s.log' % brick)

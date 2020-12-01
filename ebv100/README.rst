@@ -28,3 +28,7 @@ Run::
   chmod u+x ./mpi_runbricks.sh
   salloc -N 2 -C haswell -t 02:00:00 --qos interactive -L SCRATCH,project
   srun -n 4 shifter --module=mpich-cle6 --volume ${HOME}:/homedir/ --image=adematti/obiwan:DR9.6.7.ebv100 ./mpi_runbricks.sh
+
+Match::
+
+  shifter --volume ${HOME}:/homedir/ --image=adematti/obiwan:DR9.6.7.ebv100 python postprocess.py --do match
