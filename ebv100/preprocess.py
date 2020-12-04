@@ -28,6 +28,8 @@ def get_truth(truth_fn, south=True):
     """Build truth table."""
     truth = SimCatalog(truth_fn)
     mask = (truth.g >= 22.) & (truth.g <= 24.)
+    for b in ['g','r','z']:
+        mask &= (~np.isnan(truth.get(b))) & (~np.isinf(truth.get(b)))
     logger.info('Target selection: %d/%d objects' % (mask.sum(),mask.size))
     truth = truth[mask]
     truth.rename('objid','id_truth')

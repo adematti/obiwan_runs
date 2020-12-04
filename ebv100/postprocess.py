@@ -9,7 +9,7 @@ if __name__ == '__main__':
 
     setup_logging()
 
-    parser = argparse.ArgumentParser(description='Obiwan preprocessing')
+    parser = argparse.ArgumentParser(description='Obiwan postprocessing')
     parser.add_argument('-d','--do',nargs='*',type=str,choices=['match','plot'],default=[],required=False,help='What should I do')
     opt = parser.parse_args()
 

@@ -26,12 +26,12 @@ Set up bricklist and randoms::
 Run::
 
   chmod u+x ./mpi_runbricks.sh
-  salloc -N 2 -C haswell -t 02:00:00 --qos interactive -L SCRATCH,project
-  srun -n 4 shifter --module=mpich-cle6 --volume ${HOME}:/homedir/ --image=adematti/obiwan:DR9.6.7.ebv100 ./mpi_runbricks.sh
+  salloc -N 4 -C haswell -t 03:00:00 --qos interactive -L SCRATCH,project
+  srun -n 21 shifter --module=mpich-cle6 --volume ${HOME}:/homedir/ --image=adematti/obiwan:DR9.6.7.ebv100 ./mpi_runbricks.sh
 
 .. note::
 
-  With 4 tasks ``srun -n 4``, there will be 1 root and 3 workers, hence 3 bricks are run in parallel.
+  With 21 tasks ``srun -n 21``, there will be 1 root and 20 workers, hence 20 bricks run in parallel.
 
 Match::
 
