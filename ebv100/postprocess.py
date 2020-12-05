@@ -1,5 +1,6 @@
 import argparse
 import logging
+import numpy as np
 from obiwan import SimCatalog,utils,setup_logging,scripts
 import settings
 
@@ -15,7 +16,7 @@ if __name__ == '__main__':
 
     if 'match' in opt.do:
         match = 0
-        for brickname in settings.get_bricknames():
+        for brickname in np.unique(settings.get_bricknames()): # 1011p407 appears twice in the bricklist...
             match += scripts.match(settings.output_dir,brickname,base='inter',radius_in_degree=0.2/3600,
                                 rowstart=settings.rowstart,fileid=settings.fileid,skipid=settings.skipid)
         match.writeto(settings.randoms_matched_fn)
