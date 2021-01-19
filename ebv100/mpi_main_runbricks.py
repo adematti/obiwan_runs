@@ -6,8 +6,8 @@ from obiwan import runbrick,get_randoms_id,setup_logging
 from obiwan.batch import TaskManager
 import settings
 
-ntasks = os.getenv('SLURM_NTASKS',1)
-threads = os.getenv('OMP_NUM_THREADS',1)
+ntasks = int(os.getenv('SLURM_NTASKS','1'))
+threads = int(os.getenv('OMP_NUM_THREADS','1'))
 
 with TaskManager(ntasks=ntasks) as tm:
 

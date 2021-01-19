@@ -1,0 +1,2 @@
+brickname   fileid      rowstart    skipid      
+2580p105    0           0           0           
